@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="fr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omar El Hadi | Portfolio Développeur Full-Stack</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Portfolio professionnel d'Omar El Hadi - Développeur Full-Stack spécialisé en développement web, cybersécurité et DevOps. Expert en JavaScript, React, Node.js et technologies cloud."
+    />
+    <meta
+      name="keywords"
+      content="développeur web, full-stack, JavaScript, TypeScript, React, Node.js, cybersécurité, DevOps, portfolio"
+    />
+    <meta name="author" content="Omar El Hadi" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://omar-elhadi.dev/" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6d28d9",
+              secondary: "#10b981",
+              dark: "#0f172a",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 5s infinite",
+              "spin-slow": "spin 20s linear infinite",
+              "bounce-slow": "bounce 3s infinite",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Omar El Hadi",
+        "url": "https://omar-elhadi.dev",
+        "image": "./assets/Img.png",
+        "sameAs": [
+          "https://github.com/omar-elhadi",
+          "https://linkedin.com/in/omar-elhadi"
+        ],
+        "jobTitle": "Full-Stack Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "La Plateforme_",
+          "url": "https://laplateforme.io"
+        },
+        "description": "Développeur Full-Stack spécialisé en développement web",
+        "knowsAbout": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Python",
+          "Docker",
+          "Cybersecurity",
+          "DevOps"
+        ],
+        "email": "omar.el-hadi@laplateforme.io"
+      }
+    </script>
+  </head>
+  <body class="bg-dark text-gray-200 min-h-screen font-sans overflow-x-hidden">
+    <custom-navbar></custom-navbar>
+
+    <main class="container mx-auto px-4 py-16 md:py-20">
+      <!-- Hero Section -->
+      <section
+        id="greeting-section"
+        class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 mb-16 md:mb-32 pt-8 md:pt-0"
+      >
+        <div class="md:w-1/2 relative w-full">
+          <div
+            class="absolute -top-16 -left-16 w-32 h-32 md:w-64 md:h-64 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow"
+          ></div>
+          <div
+            class="absolute -bottom-8 -right-8 w-32 h-32 md:w-64 md:h-64 bg-secondary rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow delay-1000"
+          ></div>
+          <h1
+            class="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 px-7 border-md relative"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+              >Bonjour,</span
+            >
+            <br />Je suis <span class="text-primary">Omar El-Hadi</span>
+          </h1>
+          <p
+            class="hero-subtitle text-lg md:text-xl mb-6 md:mb-8 px-4 opacity-90"
+          >
+            Artisan numérique créant des expériences immersives.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#projects"
+              class="px-6 md:px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 text-center"
+            >
+              Voir mes projets
+            </a>
+            <a
+              href="#contact"
+              class="px-6 md:px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-primary/10 transition-all duration-300 text-center"
+            >
+              Me contacter
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 relative w-full">
+          <div
+            class="w-full h-64 md:h-96 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl backdrop-blur-sm border border-gray-800 shadow-2xl relative overflow-hidden"
+          >
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-48 md:w-64 h-48 md:h-64 bg-primary/10 rounded-full animate-pulse-slow"
+              ></div>
+            </div>
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            >
+              <div
+                class="w-32 md:w-48 h-32 md:h-48 bg-[url(/assets/Img.png)] bg-cover rounded-full animate-pulse-slow delay-500"
+              ></div>
+            </div>
+            <div
+              class="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2"
+            >
+              <div
+                class="w-24 md:w-32 h-24 md:h-32 bg-white/5 rounded-full animate-pulse-slow delay-1000"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Domains Section -->
+      <section class="mb-16 md:mb-32 xl:pt-18 md:pt-12">
+        <h2
+          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mt-8 md:mt-12 text-center"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+            >Domaines</span
+          >
+          d'expertise
+        </h2>
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 xl:w-3/4 mx-auto"
+        >
+          <div
+            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
+          >
+            <div class="domain-circle" data-percent="85%">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient
+                    id="gradient1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #6d28d9; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #10b981; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <circle
+                  class="domain-circle-bg"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                ></circle>
+                <circle
+                  class="domain-circle-progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  stroke="url(#gradient1)"
+                ></circle>
+              </svg>
+            </div>
+            <h3
+              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
+            >
+              Développement Web
+            </h3>
+            <p class="text-center text-sm font-medium text-white/50">85%</p>
+          </div>
+          <div
+            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
+          >
+            <div class="domain-circle" data-percent="85">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient
+                    id="gradient2"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #3b82f6; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #8b5cf6; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <circle
+                  class="domain-circle-bg"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                ></circle>
+                <circle
+                  class="domain-circle-progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  stroke="url(#gradient2)"
+                ></circle>
+              </svg>
+            </div>
+            <h3
+              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
+            >
+              Cybersécurité
+            </h3>
+            <p class="text-center text-sm font-medium text-white/50">70%</p>
+          </div>
+          <div
+            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
+          >
+            <div class="domain-circle" data-percent="70">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient
+                    id="gradient3"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #10b981; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #06b6d4; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <circle
+                  class="domain-circle-bg"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                ></circle>
+                <circle
+                  class="domain-circle-progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  stroke="url(#gradient3)"
+                ></circle>
+              </svg>
+            </div>
+            <h3
+              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
+            >
+              DevOps
+            </h3>
+            <p class="text-center text-sm font-medium text-white/50">75%</p>
+          </div>
+          <div
+            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
+          >
+            <div class="domain-circle" data-percent="75">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient
+                    id="gradient4"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #f59e0b; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #ef4444; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                </defs>
+                <circle
+                  class="domain-circle-bg"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                ></circle>
+                <circle
+                  class="domain-circle-progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  stroke="url(#gradient4)"
+                ></circle>
+              </svg>
+            </div>
+            <h3
+              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
+            >
+              Architecture Système
+            </h3>
+            <p class="text-center text-sm font-medium text-white/50">70%</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies Section -->
+      <section class="mb-16 md:mb-32">
+        <h2
+          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+            >Technologies</span
+          >
+          maîtrisées
+        </h2>
+        <div class="max-w-3xl mx-auto">
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-2">JavaScript/TypeScript</h3>
+            <div class="tech-bar">
+              <div
+                class="tech-bar-fill bg-violet-900"
+                data-level="95%"
+                data-gradient="linear-gradient(to right, #f0db4f, #3178c6)"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-2">React/Vue</h3>
+            <div class="tech-bar">
+              <div
+                class="tech-bar-fill bg-violet-900"
+                data-level="80%"
+                data-gradient="linear-gradient(to right, #61dafb, #42b883)"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-2">Node.js/Python</h3>
+            <div class="tech-bar">
+              <div
+                class="tech-bar-fill bg-violet-900"
+                data-level="85%"
+                data-gradient="linear-gradient(to right, #68a063, #3776ab)"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-2">PHP/Java</h3>
+            <div class="tech-bar">
+              <div
+                class="tech-bar-fill bg-violet-900"
+                data-level="75%"
+                data-gradient="linear-gradient(to right, #0db7ed, #326ce5)"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-2">Linux/Bash</h3>
+            <div class="tech-bar">
+              <div
+                class="tech-bar-fill bg-violet-900"
+                data-level="75%"
+                data-gradient="linear-gradient(to right, #f7df1e, #4eaa25)"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-2">Docker</h3>
+            <div class="tech-bar">
+              <div
+                class="tech-bar-fill bg-violet-900"
+                data-level="70%"
+                data-gradient="linear-gradient(to right, #ff9900, #4285f4)"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Basic Work Skills Section -->
+      <section class="mb-16 md:mb-32">
+        <h2
+          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+            >Compétences</span
+          >
+          professionnelles
+        </h2>
+        <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="basic-skill-item">
+            <div class="skill-check">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+            <div class="skill-info">
+              <h4>Présentations</h4>
+              <p>PowerPoint, Google Slides</p>
+            </div>
+          </div>
+          <div class="basic-skill-item">
+            <div class="skill-check">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+            <div class="skill-info">
+              <h4>Outils de design</h4>
+              <p>Canva, Figma</p>
+            </div>
+          </div>
+          <div class="basic-skill-item">
+            <div class="skill-check">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+            <div class="skill-info">
+              <h4>Méthodologies Agiles</h4>
+              <p>Scrum, Kanban, Sprint Planning</p>
+            </div>
+          </div>
+          <div class="basic-skill-item">
+            <div class="skill-check">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+            <div class="skill-info">
+              <h4>Suite Office</h4>
+              <p>Outlook, Teams, LibreOffice</p>
+            </div>
+          </div>
+          <div class="basic-skill-item">
+            <div class="skill-check">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+            <div class="skill-info">
+              <h4>Gestion de projet</h4>
+              <p>Jira, Trello, ClickUp</p>
+            </div>
+          </div>
+          <div class="basic-skill-item">
+            <div class="skill-check">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+            <div class="skill-info">
+              <h4>Communication</h4>
+              <p>Documentation technique, Collaboration d’équipe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section id="projects" class="mb-16 md:mb-32">
+        <h2
+          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+            >Mes</span
+          >
+          Projets
+        </h2>
+        <div
+          id="projects-container"
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+        >
+          <!-- Projects will be loaded dynamically from projects.json -->
+        </div>
+      </section>
+      <!-- Education Section -->
+      <section class="mb-16 md:mb-32">
+        <h2
+          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+            >Formation</span
+          >
+          & Parcours
+        </h2>
+        <div class="max-w-3xl mx-auto">
+          <div class="education-item">
+            <h3 class="text-xl font-bold">Développement web et Mobile CDPI</h3>
+            <p class="opacity-80 mb-2">La Plateforme | 2025-2026</p>
+            <p>Développement web et Mobile.</p>
+          </div>
+          <div class="education-item">
+            <h3 class="text-xl font-bold">La Wéb@cadémie by Epitech</h3>
+            <p class="opacity-80 mb-2">Epitech Marseille | 2023-2025</p>
+            <p>
+              Développement full-stack avec emphasis sur les applications web et
+              Mobile.
+            </p>
+          </div>
+          <div class="education-item">
+            <h3 class="text-xl font-bold">FreeCodeCamp</h3>
+            <p class="opacity-80 mb-2">freecodecamp.org | 2022</p>
+            <p>Développement logiciel.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="mb-16 md:mb-32">
+        <div
+          class="bg-gradient-to-br from-dark to-gray-900 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl border border-gray-800"
+        >
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+            <div>
+              <h2
+                class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mb-4 md:mb-6"
+              >
+                Restons
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                  >Connectés</span
+                >
+              </h2>
+              <p class="text-base md:text-xl mb-6 md:mb-8 opacity-90">
+                Prêt à démarrer un projet ensemble ? Envoyez-moi un message et
+                je vous répondrai rapidement.
+              </p>
+
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <i data-feather="mail" class="text-primary"></i>
+                  <span class="contact-email">
+                    <span class="email-text">omar-el-hadi@laplateforme.io</span>
+                    <i data-feather="copy" class="copy-icon"></i>
+                  </span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <i data-feather="map-pin" class="text-red-600"></i>
+                  <span>Marseille, France</span>
+                </div>
+                <div class="flex gap-4 mt-6">
+                  <a
+                    href="https://github.com/omar-elhadi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-500 transition-colors"
+                  >
+                    <i data-feather="github"></i>
+                  </a>
+                  <a
+                    href="https://linkedin.com/omar-el-hadi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-500 transition-colors"
+                  >
+                    <i data-feather="linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-4 md:space-y-6" id="contact-form">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div>
+                  <label for="name" class="block mb-2 text-sm font-medium"
+                    >Votre nom <span class="text-red-500">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="Jean Dupont"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block mb-2 text-sm font-medium"
+                    >Votre email <span class="text-red-500">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="jean@example.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="subject" class="block mb-2 text-sm font-medium"
+                  >Sujet</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="Demande de collaboration"
+                />
+              </div>
+              <div>
+                <label for="message" class="block mb-2 text-sm font-medium"
+                  >Votre message <span class="text-red-500">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                  placeholder="Décrivez votre projet..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Envoyer le message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <button
+      id="download-cv-btn"
+      class="fixed bg-cyan-500/50 bottom-20 right-20 rounded-3xl border-2 border-l-violet-600 border-t-violet-600 border-r-pink-400 border-b-pink-400 px-5 py-1 duration-100 hover:-translate-y-2"
+      rel="noopener noreferrer"
+    >
+      Télécharger Mon CV
+    </button>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
