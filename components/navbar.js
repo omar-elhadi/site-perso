@@ -56,7 +56,8 @@ class CustomNavbar extends HTMLElement {
                 .nav-links a {
                     color: rgba(255, 255, 255, 0.8);
                     text-decoration: none;
-                    font-weight: 500;
+                    font-weight: 700;
+		    font-size: 1.2rem;
                     transition: all 0.3s ease;
                     position: relative;
                     padding: 0.5rem 0;

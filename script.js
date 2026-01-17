@@ -4,6 +4,28 @@ document.addEventListener("DOMContentLoaded", () => {
     feather.replace();
   }
 
+  // Loading spinner for 2 seconds
+  const loadingSpinner = () => {
+    const spinner = document.createElement("div");
+    spinner.className =
+      "fixed inset-0 bg-gray-900 z-50 flex items-center justify-center transition-opacity duration-500";
+    spinner.innerHTML = `
+<div class="relative w-32 h-32">
+<div class="absolute inset-0 border-8 border-transparent border-t-purple-700 border-r-pink-700 rounded-full animate-spin"></div>
+<div class="absolute inset-4 border-8 border-transparent border-b-yellow-400 border-l-cyan-400 rounded-full animate-spin" style="animation-direction: reverse; animation-duration: 1s;"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-4xl">🌙</span>
+</div>
+</div>
+`;
+    document.body.appendChild(spinner);
+    setTimeout(() => {
+      document.body.removeChild(spinner);
+    }, 2000);
+    clearTimeout();
+  };
+  loadingSpinner();
+
   // Load projects dynamically from JSON
   const loadProjects = async () => {
     try {
@@ -60,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (container) {
         container.innerHTML = `
           <div class="col-span-full text-center text-red-500">
-            <p>Impossible de charger les projets. Veuillez réessayer plus tard.</p>
+            <p>Impossible de charger les projets.</p>
           </div>
         `;
       }
@@ -231,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </svg>
         </button>
       </div>
-      <div class="relative z-10 p-8 bg-black opacity-65 h-full">
+      <div class="relative z-10 p-8 bg-black opacity-65 h-full rounded-xl">
         <h3 class="text-3xl font-bold mb-4">${project.title}</h3>
         <p class="text-lg opacity-90 mb-6">${project.description}</p>
         ${
