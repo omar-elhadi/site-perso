@@ -236,50 +236,54 @@ document.addEventListener("DOMContentLoaded", () => {
       "Architecture Système",
     ];
 
-    const cursorLine = body.querySelector(".terminal-cursor-line");
-    const firstLine = body.querySelector(".terminal-line");
+    const typedCommand = document.getElementById("typed-command");
+    const typingCursor = document.getElementById("typing-cursor");
+    const cursorLine = document.querySelector(".terminal-cursor-line");
 
-    // Animate the initial cat command line
-    setTimeout(() => {
-      if (firstLine) firstLine.classList.add("visible");
-    }, 300);
+    const command = "./expertise.sh --scan";
+    let charIndex = 0;
 
-    let lineIndex = 0;
+    // Type the command character by character
+    const typeCommand = () => {
+      if (charIndex < command.length) {
+        typedCommand.textContent += command[charIndex];
+        charIndex++;
+        setTimeout(typeCommand, 40);
+      } else {
+        // Command typed — hide cursor, show output
+        if (typingCursor) typingCursor.style.display = "none";
 
-    const typeNextLine = () => {
-      if (lineIndex >= domains.length) {
-        const finalLine = document.createElement("div");
-        finalLine.className = "terminal-line visible";
-        finalLine.innerHTML = `<span class="terminal-prompt">$</span><span class="terminal-command">./competences --list</span>`;
-        body.insertBefore(finalLine, cursorLine);
-        return;
+        setTimeout(() => {
+          let lineIndex = 0;
+
+          const showNext = () => {
+            if (lineIndex >= domains.length) {
+              // Final prompt line
+              const finalLine = document.createElement("div");
+              finalLine.className = "terminal-line";
+              finalLine.innerHTML = `<span class="terminal-prompt">$</span><span class="terminal-cursor">▊</span>`;
+              body.appendChild(finalLine);
+              requestAnimationFrame(() => finalLine.classList.add("visible"));
+              return;
+            }
+
+            const outLine = document.createElement("div");
+            outLine.className = "terminal-output";
+            outLine.innerHTML = `<span class="terminal-output-bullet">◆</span><span>${domains[lineIndex]}</span>`;
+            body.insertBefore(outLine, cursorLine);
+
+            requestAnimationFrame(() => outLine.classList.add("visible"));
+
+            lineIndex++;
+            setTimeout(showNext, 200);
+          };
+
+          showNext();
+        }, 300);
       }
-
-      const cmdLine = document.createElement("div");
-      cmdLine.className = "terminal-line";
-      cmdLine.innerHTML = `<span class="terminal-prompt">❯</span><span class="terminal-command">apt show ${lineIndex + 1}</span>`;
-      body.insertBefore(cmdLine, cursorLine);
-
-      requestAnimationFrame(() => {
-        cmdLine.classList.add("visible");
-      });
-
-      setTimeout(() => {
-        const outLine = document.createElement("div");
-        outLine.className = "terminal-output";
-        outLine.innerHTML = `<span class="terminal-output-bullet">◆</span><span>${domains[lineIndex]}</span>`;
-        body.insertBefore(outLine, cursorLine);
-
-        requestAnimationFrame(() => {
-          outLine.classList.add("visible");
-        });
-
-        lineIndex++;
-        setTimeout(typeNextLine, 800);
-      }, 400);
     };
 
-    setTimeout(typeNextLine, 600);
+    setTimeout(typeCommand, 400);
   };
 
   // Smooth scrolling for anchor links
