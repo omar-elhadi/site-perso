@@ -236,11 +236,11 @@ img {
 }
 
 .terminal-body {
-  padding: 28px 32px;
-  min-height: 280px;
+  padding: 36px 40px;
+  min-height: 420px;
   font-family: var(--font-mono);
   font-size: 1rem;
-  line-height: 2;
+  line-height: 2.2;
 }
 
 .terminal-line {
@@ -269,11 +269,10 @@ img {
 }
 
 .terminal-output {
-  color: rgba(255, 255, 255, 0.9);
   padding-left: 24px;
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 14px;
   opacity: 0;
 }
 
@@ -283,8 +282,14 @@ img {
 }
 
 .terminal-output-bullet {
-  color: #6d28d9;
+  font-size: 1.6rem;
   flex-shrink: 0;
+}
+
+.terminal-output-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .terminal-cursor-line {
@@ -533,9 +538,17 @@ img {
   }
 
   .terminal-body {
-    padding: 20px 24px;
+    padding: 24px 28px;
     font-size: 0.9rem;
-    min-height: 220px;
+    min-height: 340px;
+  }
+
+  .terminal-output-text {
+    font-size: 1.15rem;
+  }
+
+  .terminal-output-bullet {
+    font-size: 1.3rem;
   }
 
   .project-card,
@@ -550,9 +563,17 @@ img {
   }
 
   .terminal-body {
-    padding: 16px;
+    padding: 18px;
     font-size: 0.85rem;
-    min-height: 180px;
+    min-height: 280px;
+  }
+
+  .terminal-output-text {
+    font-size: 1rem;
+  }
+
+  .terminal-output-bullet {
+    font-size: 1.1rem;
   }
 
   .project-card,

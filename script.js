@@ -230,10 +230,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!body) return;
 
     const domains = [
-      "Développement Web",
-      "Cybersécurité",
-      "DevOps",
-      "Architecture Système",
+      { name: "Développement Web",   color: "#6d28d9" },
+      { name: "Cybersécurité",       color: "#3b82f6" },
+      { name: "DevOps",             color: "#10b981" },
+      { name: "Architecture Système", color: "#f59e0b" },
     ];
 
     const typedCommand = document.getElementById("typed-command");
@@ -269,7 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const outLine = document.createElement("div");
             outLine.className = "terminal-output";
-            outLine.innerHTML = `<span class="terminal-output-bullet">◆</span><span>${domains[lineIndex]}</span>`;
+            const domain = domains[lineIndex];
+            outLine.innerHTML = `<span class="terminal-output-bullet" style="color:${domain.color}">◆</span><span class="terminal-output-text" style="color:${domain.color}">${domain.name}</span>`;
             body.insertBefore(outLine, cursorLine);
 
             requestAnimationFrame(() => outLine.classList.add("visible"));
