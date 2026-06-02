@@ -426,8 +426,8 @@ img {
 .basic-skill-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -455,9 +455,9 @@ img {
 }
 
 .skill-check {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, #6d28d9, #10b981);
   display: flex;
@@ -467,18 +467,19 @@ img {
 }
 
 .skill-check svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 }
 
 .skill-info h4 {
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: white;
 }
 
 .skill-info p {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -528,13 +529,13 @@ img {
 /* Responsive optimizations */
 @media (max-width: 1024px) {
   section {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
   }
 }
 
 @media (max-width: 768px) {
   section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   .terminal-body {
@@ -559,7 +560,7 @@ img {
 
 @media (max-width: 480px) {
   section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .terminal-body {
