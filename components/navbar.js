@@ -254,7 +254,7 @@ class CustomNavbar extends HTMLElement {
       drawer.className = "sp-drawer";
       drawer.setAttribute("aria-label", "Menu mobile");
       drawer.innerHTML = `
-                <a href="#greetign-section">Accueil</a>
+                <a href="#greeting-section">Accueil</a>
                 <a href="#projects">Projets</a>
                 <a href="#contact">Contact</a>
             `;

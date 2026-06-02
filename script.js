@@ -20,78 +20,96 @@ document.addEventListener("DOMContentLoaded", () => {
 `;
     document.body.appendChild(spinner);
     setTimeout(() => {
-      document.body.removeChild(spinner);
+      if (spinner.parentNode) {
+        document.body.removeChild(spinner);
+      }
     }, 2000);
-    clearTimeout();
   };
   loadingSpinner();
 
-  // Load projects dynamically from JSON
-  const loadProjects = async () => {
-    try {
-      const response = await fetch("projects.json");
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const projects = await response.json();
-      const container = document.getElementById("projects-container");
-
-      if (!container) return;
-
-      projects.forEach((project, index) => {
-        const gradientClass =
-          index % 2 === 0
-            ? "from-primary/20 to-secondary/20"
-            : "from-secondary/20 to-primary/20";
-
-        const projectCard = document.createElement("div");
-        projectCard.className = "project-card group";
-        projectCard.innerHTML = `
-          <div class="project-image bg-[url('${project.image}')]">
-            <div class="absolute inset-0 bg-gradient-to-br ${gradientClass} rounded-xl"></div>
-          </div>
-          <div class="project-content">
-            <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
-            <p class="opacity-80 mb-4">${project.description}</p>
-            <div class="flex gap-2 flex-wrap">
-              ${project.tags
-                .map(
-                  (tag, i) => `
-                <span class="px-3 py-1 ${
-                  i === 0
-                    ? "bg-primary/10 text-primary"
-                    : i === 1
-                      ? "bg-secondary/10 text-secondary"
-                      : "bg-gray-800"
-                } rounded-full text-sm">${tag}</span>
-              `,
-                )
-                .join("")}
-            </div>
-          </div>
-        `;
-
-        // Add click event to open modal with project details
-        projectCard.addEventListener("click", () => {
-          openProjectModal(project, projectCard);
-        });
-
-        container.appendChild(projectCard);
-      });
-    } catch (error) {
-      console.error("Error loading projects:", error);
-      // Fallback: show error message
-      const container = document.getElementById("projects-container");
-      if (container) {
-        container.innerHTML = `
-          <div class="col-span-full text-center text-red-500">
-            <p>Impossible de charger les projets.</p>
-          </div>
-        `;
-      }
+  // Load projects from inline data (no fetch needed, works with file://)
+  const projectsData = [
+    {
+      title: "Cinema",
+      description: "Petit site de base de données de films créé avec l'API TMDB",
+      tags: ["React", "Typescript", "TailwindCSS", "API"],
+      image: "./assets/cinema.png",
+      url: "https://cinema-beige-tau.vercel.app/",
+      details: "Petit site de base de données de films créé avec l'API TMDB. Il permet de rechercher des films, de voir les détails des films, les bandes-annonces, les acteurs et les critiques."
+    },
+    {
+      title: "Chatty",
+      description: "Une application web de chat en temps réel",
+      tags: ["React", "Node.js", "CSS"],
+      image: "./assets/chatty.png",
+      url: "https://chatty-upde.vercel.app/",
+      details: "Une application web de chat en temps réel permettant aux utilisateurs d'envoyer des messages instantanés, de créer des groupes de discussion et de partager des fichiers."
+    },
+    {
+      title: "Code4Sud",
+      description: "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle.",
+      tags: ["Python", "Node.js", "Ollama (Lamma3.3)", "OpenDataAPI"],
+      image: "./assets/code4sud.png",
+      url: "https://dev.ia4sud.fr/",
+      details: "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle. (Nous étions l'une des meilleures équipes). Nous avons développé une application web qui utilise l'API OpenData pour fournir des informations en temps réel sur divers sujets."
+    },
+    {
+      title: "Médiathèque Antique",
+      description: "Un système de gestion de médiathèque",
+      tags: ["PHP", "Javascript", "CSS", "MVC"],
+      image: "./assets/mediahub.png",
+      url: "https://github.com/omar-elhadi/mediahub.git",
+      details: "Un système de gestion de médiathèque permettant aux utilisateurs de rechercher, emprunter et retourner des livres, des films et les jeux vidéo. Le système comprend également une interface d'administration pour gérer les utilisateurs et les ressources."
     }
-  };
+  ];
 
-  // Load projects
-  loadProjects();
+  const container = document.getElementById("projects-container");
+  if (container) {
+    container.innerHTML = "";
+
+    projectsData.forEach((project, index) => {
+      const gradientClass =
+        index % 2 === 0
+          ? "from-primary/20 to-secondary/20"
+          : "from-secondary/20 to-primary/20";
+
+      const projectCard = document.createElement("div");
+      projectCard.className = "project-card group";
+      projectCard.innerHTML = `
+        <div class="project-image bg-[url('${project.image}')]">
+          <div class="absolute inset-0 bg-gradient-to-br ${gradientClass} rounded-xl"></div>
+        </div>
+        <div class="project-content">
+          <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
+          <p class="opacity-80 mb-4">${project.description}</p>
+          <div class="flex gap-2 flex-wrap">
+            ${project.tags
+              .map(
+                (tag, i) => `
+              <span class="px-3 py-1 ${
+                i === 0
+                  ? "bg-primary/10 text-primary"
+                  : i === 1
+                    ? "bg-secondary/10 text-secondary"
+                    : "bg-gray-800"
+              } rounded-full text-sm">${tag}</span>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      `;
+
+      projectCard.addEventListener("click", () => {
+        openProjectModal(project, projectCard);
+      });
+
+      container.appendChild(projectCard);
+      setTimeout(() => {
+        projectCard.classList.add("visible");
+      }, index * 100);
+    });
+  }
 
   // Typewriter effect
   const typewriter = (
@@ -181,7 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Animate domain cards
-        if (element.classList.contains("domain-card") && !element.classList.contains("animate-in")) {
+        if (
+          element.classList.contains("domain-card") &&
+          !element.classList.contains("animate-in")
+        ) {
           const percent = parseInt(element.getAttribute("data-percent"));
           const fill = element.querySelector(".domain-bar-fill");
           if (fill) {
