@@ -114,7 +114,7 @@ class CustomFooter extends HTMLElement {
           Créons quelque chose d'incroyable ensemble !
         </p>
         
-        <a href="/" class="footer-logo">
+        <a href="./" class="footer-logo">
           <i data-feather="moon"></i>
           Omar El Hadi
         </a>

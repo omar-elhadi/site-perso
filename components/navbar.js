@@ -174,7 +174,7 @@ class CustomNavbar extends HTMLElement {
                 }
             </style>
             <nav>
-                <a href="/" class="logo" aria-label="Accueil Portfolio Omar El-Hadi">
+                <a href="./" class="logo" aria-label="Accueil Portfolio Omar El-Hadi">
                     <!-- Inline SVG to ensure icon renders within Shadow DOM -->
                     
                     Omar El-Hadi

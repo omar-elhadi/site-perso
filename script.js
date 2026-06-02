@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadProjects = async () => {
     try {
       const response = await fetch("projects.json");
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const projects = await response.json();
       const container = document.getElementById("projects-container");
 
