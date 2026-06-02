@@ -203,8 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
           element.classList.add("visible");
           typeDomains();
         }
-          element.classList.add("animate-in");
-        }
 
         // Animate basic skill items with stagger
         if (
