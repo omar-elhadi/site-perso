@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Animate elements when they come into view
   const animateOnScroll = () => {
     const elements = document.querySelectorAll(
-      ".project-card, .tech-bar-fill, .domain-card, .education-item, .basic-skill-item",
+      ".project-card, .tech-bar-fill, #terminal, .education-item, .basic-skill-item",
     );
 
     elements.forEach((element, index) => {
@@ -198,16 +198,11 @@ document.addEventListener("DOMContentLoaded", () => {
           // }
         }
 
-        // Animate domain cards
-        if (
-          element.classList.contains("domain-card") &&
-          !element.classList.contains("animate-in")
-        ) {
-          const percent = parseInt(element.getAttribute("data-percent"));
-          const fill = element.querySelector(".domain-bar-fill");
-          if (fill) {
-            fill.style.width = percent + "%";
-          }
+        // Animate terminal
+        if (element.id === "terminal" && !element.classList.contains("visible")) {
+          element.classList.add("visible");
+          typeDomains();
+        }
           element.classList.add("animate-in");
         }
 
@@ -226,6 +221,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", animateOnScroll);
   animateOnScroll(); // Run once on load
+
+  // Terminal typewriter for domains
+  let terminalStarted = false;
+  const typeDomains = () => {
+    if (terminalStarted) return;
+    terminalStarted = true;
+
+    const body = document.getElementById("terminal-body");
+    if (!body) return;
+
+    const domains = [
+      "Développement Web",
+      "Cybersécurité",
+      "DevOps",
+      "Architecture Système",
+    ];
+
+    const cursorLine = body.querySelector(".terminal-cursor-line");
+    const firstLine = body.querySelector(".terminal-line");
+
+    // Animate the initial cat command line
+    setTimeout(() => {
+      if (firstLine) firstLine.classList.add("visible");
+    }, 300);
+
+    let lineIndex = 0;
+
+    const typeNextLine = () => {
+      if (lineIndex >= domains.length) {
+        const finalLine = document.createElement("div");
+        finalLine.className = "terminal-line visible";
+        finalLine.innerHTML = `<span class="terminal-prompt">$</span><span class="terminal-command">./competences --list</span>`;
+        body.insertBefore(finalLine, cursorLine);
+        return;
+      }
+
+      const cmdLine = document.createElement("div");
+      cmdLine.className = "terminal-line";
+      cmdLine.innerHTML = `<span class="terminal-prompt">❯</span><span class="terminal-command">apt show ${lineIndex + 1}</span>`;
+      body.insertBefore(cmdLine, cursorLine);
+
+      requestAnimationFrame(() => {
+        cmdLine.classList.add("visible");
+      });
+
+      setTimeout(() => {
+        const outLine = document.createElement("div");
+        outLine.className = "terminal-output";
+        outLine.innerHTML = `<span class="terminal-output-bullet">◆</span><span>${domains[lineIndex]}</span>`;
+        body.insertBefore(outLine, cursorLine);
+
+        requestAnimationFrame(() => {
+          outLine.classList.add("visible");
+        });
+
+        lineIndex++;
+        setTimeout(typeNextLine, 800);
+      }, 400);
+    };
+
+    setTimeout(typeNextLine, 600);
+  };
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

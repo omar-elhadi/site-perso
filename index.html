@@ -169,48 +169,23 @@
           >
           d'expertise
         </h2>
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:w-4/5 mx-auto"
-        >
-          <div class="domain-card" data-percent="85">
-            <div class="domain-icon" style="background: linear-gradient(135deg, #6d28d9, #10b981);">
-              <i data-feather="code"></i>
-            </div>
-            <h3 class="domain-title">Développement Web</h3>
-            <div class="domain-bar-track">
-              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #6d28d9, #10b981);"></div>
-            </div>
-            <span class="domain-percent">85%</span>
+        <div id="terminal" class="terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot" style="background: #ef4444;"></span>
+            <span class="terminal-dot" style="background: #f59e0b;"></span>
+            <span class="terminal-dot" style="background: #10b981;"></span>
+            <span class="terminal-title">expertise.sh</span>
           </div>
-          <div class="domain-card" data-percent="70">
-            <div class="domain-icon" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);">
-              <i data-feather="shield"></i>
+          <div id="terminal-body" class="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-command">cat domains.txt</span>
             </div>
-            <h3 class="domain-title">Cybersécurité</h3>
-            <div class="domain-bar-track">
-              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #3b82f6, #8b5cf6);"></div>
+            <!-- Lines are inserted here by JS -->
+            <div class="terminal-cursor-line">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-cursor">▊</span>
             </div>
-            <span class="domain-percent">70%</span>
-          </div>
-          <div class="domain-card" data-percent="75">
-            <div class="domain-icon" style="background: linear-gradient(135deg, #10b981, #06b6d4);">
-              <i data-feather="server"></i>
-            </div>
-            <h3 class="domain-title">DevOps</h3>
-            <div class="domain-bar-track">
-              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #10b981, #06b6d4);"></div>
-            </div>
-            <span class="domain-percent">75%</span>
-          </div>
-          <div class="domain-card" data-percent="70">
-            <div class="domain-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
-              <i data-feather="cpu"></i>
-            </div>
-            <h3 class="domain-title">Architecture Système</h3>
-            <div class="domain-bar-track">
-              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #f59e0b, #ef4444);"></div>
-            </div>
-            <span class="domain-percent">70%</span>
           </div>
         </div>
       </section>
