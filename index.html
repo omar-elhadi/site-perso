@@ -27,6 +27,9 @@
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -109,11 +112,11 @@
             >
             <br />Je suis <span class="text-primary">Omar El-Hadi</span>
           </h1>
-          <p
-            class="hero-subtitle text-lg md:text-xl mb-16 md:mb-8 px-4 opacity-90"
-          >
-            Artisan numérique créant des expériences immersives.
-          </p>
+          <div class="hero-subtitle-wrap">
+            <p class="hero-subtitle text-lg md:text-xl opacity-90">
+              Artisan numérique créant des expériences immersives.
+            </p>
+          </div>
           <div class="flex flex-col sm:flex-row gap-4">
             <a
               href="#projects"

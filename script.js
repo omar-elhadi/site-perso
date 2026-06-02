@@ -162,18 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "Création de solutions élégantes pour des problèmes complexes.",
     ];
 
-    // Set initial height to prevent layout shift
-    const tempSpan = document.createElement("span");
-    tempSpan.style.visibility = "hidden";
-    tempSpan.style.position = "absolute";
-    tempSpan.textContent = phrases[0];
-    heroText.parentNode.appendChild(tempSpan);
-    const maxHeight = tempSpan.offsetHeight;
-    heroText.parentNode.removeChild(tempSpan);
-
-    heroText.style.minHeight = `${maxHeight}px`;
-    heroText.style.display = "inline-block";
-
     typewriter(heroText, phrases, 50, 30, 2000);
   }
 
@@ -315,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalContent = document.createElement("div");
     modalContent.className =
-      "project-card project-modal bg-dark/95 border border-primary/20 scale-95 opacity-0 h-auto rounded-2xl max-w-[75%] lg:h-[38%] xl:max-w-4xl";
+      "project-card project-modal bg-dark/95 border border-primary/20 scale-95 opacity-0 max-w-[90%] xl:max-w-5xl w-full";
     modalContent.innerHTML = `
       <div class="project-image " style="background-image: url('${
         project.image
