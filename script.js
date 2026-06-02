@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Animate elements when they come into view
   const animateOnScroll = () => {
     const elements = document.querySelectorAll(
-      ".project-card, .tech-bar-fill, .domain-circle, .education-item, .basic-skill-item",
+      ".project-card, .tech-bar-fill, .domain-card, .education-item, .basic-skill-item",
     );
 
     elements.forEach((element, index) => {
@@ -180,20 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
           // }
         }
 
-        // Animate domain circles
-        if (element.classList.contains("domain-circle")) {
+        // Animate domain cards
+        if (element.classList.contains("domain-card") && !element.classList.contains("animate-in")) {
           const percent = parseInt(element.getAttribute("data-percent"));
-          const circle = element.querySelector(".domain-circle-progress");
-
-          if (circle && !element.classList.contains("animated")) {
-            // Calculate stroke offset
-            const radius = circle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
-            const offset = circumference - (percent / 100) * circumference;
-            circle.style.strokeDashoffset = offset;
-
-            element.classList.add("animated");
+          const fill = element.querySelector(".domain-bar-fill");
+          if (fill) {
+            fill.style.width = percent + "%";
           }
+          element.classList.add("animate-in");
         }
 
         // Animate basic skill items with stagger

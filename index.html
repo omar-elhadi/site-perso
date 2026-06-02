@@ -159,9 +159,9 @@
         </div>
       </section>
       <!-- Domains Section -->
-      <section class="mb-16 md:mb-32 xl:pt-18 md:pt-12">
+      <section class="mb-16 md:mb-32">
         <h2
-          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mt-8 md:mt-12 text-center"
+          class="flex justify-center gap-4 text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center"
         >
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
@@ -170,187 +170,47 @@
           d'expertise
         </h2>
         <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 xl:w-3/4 mx-auto"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:w-4/5 mx-auto"
         >
-          <div
-            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
-          >
-            <div class="domain-circle" data-percent="85%">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient
-                    id="gradient1"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #6d28d9; stop-opacity: 1"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #10b981; stop-opacity: 1"
-                    />
-                  </linearGradient>
-                </defs>
-                <circle
-                  class="domain-circle-bg"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                ></circle>
-                <circle
-                  class="domain-circle-progress"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  stroke="url(#gradient1)"
-                ></circle>
-              </svg>
+          <div class="domain-card" data-percent="85">
+            <div class="domain-icon" style="background: linear-gradient(135deg, #6d28d9, #10b981);">
+              <i data-feather="code"></i>
             </div>
-            <h3
-              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
-            >
-              Développement Web
-            </h3>
-            <p class="text-center text-sm font-medium text-white/50">85%</p>
+            <h3 class="domain-title">Développement Web</h3>
+            <div class="domain-bar-track">
+              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #6d28d9, #10b981);"></div>
+            </div>
+            <span class="domain-percent">85%</span>
           </div>
-          <div
-            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
-          >
-            <div class="domain-circle" data-percent="85">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient
-                    id="gradient2"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #3b82f6; stop-opacity: 1"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #8b5cf6; stop-opacity: 1"
-                    />
-                  </linearGradient>
-                </defs>
-                <circle
-                  class="domain-circle-bg"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                ></circle>
-                <circle
-                  class="domain-circle-progress"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  stroke="url(#gradient2)"
-                ></circle>
-              </svg>
+          <div class="domain-card" data-percent="70">
+            <div class="domain-icon" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);">
+              <i data-feather="shield"></i>
             </div>
-            <h3
-              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
-            >
-              Cybersécurité
-            </h3>
-            <p class="text-center text-sm font-medium text-white/50">70%</p>
+            <h3 class="domain-title">Cybersécurité</h3>
+            <div class="domain-bar-track">
+              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #3b82f6, #8b5cf6);"></div>
+            </div>
+            <span class="domain-percent">70%</span>
           </div>
-          <div
-            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
-          >
-            <div class="domain-circle" data-percent="70">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient
-                    id="gradient3"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #10b981; stop-opacity: 1"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #06b6d4; stop-opacity: 1"
-                    />
-                  </linearGradient>
-                </defs>
-                <circle
-                  class="domain-circle-bg"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                ></circle>
-                <circle
-                  class="domain-circle-progress"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  stroke="url(#gradient3)"
-                ></circle>
-              </svg>
+          <div class="domain-card" data-percent="75">
+            <div class="domain-icon" style="background: linear-gradient(135deg, #10b981, #06b6d4);">
+              <i data-feather="server"></i>
             </div>
-            <h3
-              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
-            >
-              DevOps
-            </h3>
-            <p class="text-center text-sm font-medium text-white/50">75%</p>
+            <h3 class="domain-title">DevOps</h3>
+            <div class="domain-bar-track">
+              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #10b981, #06b6d4);"></div>
+            </div>
+            <span class="domain-percent">75%</span>
           </div>
-          <div
-            class="flex flex-col items-center transition-transform duration-300 hover:-translate-y-2"
-          >
-            <div class="domain-circle" data-percent="75">
-              <svg viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient
-                    id="gradient4"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #f59e0b; stop-opacity: 1"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #ef4444; stop-opacity: 1"
-                    />
-                  </linearGradient>
-                </defs>
-                <circle
-                  class="domain-circle-bg"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                ></circle>
-                <circle
-                  class="domain-circle-progress"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  stroke="url(#gradient4)"
-                ></circle>
-              </svg>
+          <div class="domain-card" data-percent="70">
+            <div class="domain-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+              <i data-feather="cpu"></i>
             </div>
-            <h3
-              class="text-center text-lg font-bold uppercase tracking-wider text-white mb-2"
-            >
-              Architecture Système
-            </h3>
-            <p class="text-center text-sm font-medium text-white/50">70%</p>
+            <h3 class="domain-title">Architecture Système</h3>
+            <div class="domain-bar-track">
+              <div class="domain-bar-fill" style="background: linear-gradient(90deg, #f59e0b, #ef4444);"></div>
+            </div>
+            <span class="domain-percent">70%</span>
           </div>
         </div>
       </section>
