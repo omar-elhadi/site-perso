@@ -2,16 +2,13 @@
 
 Personal portfolio showcasing full-stack development expertise.
 
-## ✨ Live Site
+## Live Site
 
-[View Live Demo](https://omar-elhadi.dev/) | [GitHub Repository](https://github.com/omar-elhadi/site-perso)
+View live demo: https://omar-elhadi.dev/ | GitHub repository: https://github.com/omar-elhadi/site-perso
 
-## 💻 Tech Stack
-- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-- **Styling:** Tailwind CSS (via CDN), Custom CSS
-- **Icons:** Feather Icons
+Tech Stack: HTML5, CSS3, JavaScript (ES6+), Tailwind CSS (via CDN)
 
-## 📁 Project Structure
+Project Structure
 ```
 site-perso/
 ├── assets/           # Images & media files
@@ -37,15 +34,9 @@ site-perso/
 python3 -m http.server 8000 # Or use your preferred static server
 ```
 
-## 🚀 Deployment via GitHub Pages
-This site is automatically deployed to **GitHub Pages** on every push.  
-CI/CD handled by [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) (assumed).
+Deployment via GitHub Pages. The site is automatically deployed on every push through CI/CD.
 
-## 📝 License & Attribution
-- Personal portfolio - All rights reserved © 2026 Omar El Hadi
-- Source code available under MIT license for educational use only.
 
 ---
 
-*Built with ❤️ on Linux | Last updated: June 2026*  
-[![GitHub](https://img.shields.io/badge/GitHub-%40omar--elhadi-blue?style=flat-square&logo=github)](https://github.com/omar-elhadi)
+Last updated: June 2026
