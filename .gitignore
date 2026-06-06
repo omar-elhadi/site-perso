@@ -1,0 +1,17 @@
+# Dependencies and build artifacts (not needed for static site)
+
+# Node modules (if you ever use npm tools)
+node_modules/
+
+# Environment variables (keep secrets out of git!)
+.env*
+
+# OS-specific files  
+.DS_Store              # macOS 
+Thumbs.db               # Windows
+*.log                   # Logs
+
+# Editor configs  
+.vscode/
+.idea/
+*.swp, *.swo            # Vim swap files
