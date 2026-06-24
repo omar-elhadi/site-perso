@@ -12,7 +12,7 @@ Project Structure
 ```
 site-perso/
 ├── assets/           # Images & media files
-│   ├── Img.png       # Profile photo placeholder
+│   ├── profile.png       # Profile photo placeholder
 │   └── ...            # Other images (chatty, cinema, etc.)
 ├── components/        # Reusable HTML/CSS components  
 ├── index.html         # Main portfolio page with SEO optimization
