@@ -31,11 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectsData = [
     {
       title: "Cinema",
-      description: "Petit site de base de données de films créé avec l'API TMDB",
+      description:
+        "Petit site de base de données de films créé avec l'API TMDB",
       tags: ["React", "Typescript", "TailwindCSS", "API"],
       image: "./assets/cinema.png",
       url: "https://cinema-beige-tau.vercel.app/",
-      details: "Petit site de base de données de films créé avec l'API TMDB. Il permet de rechercher des films, de voir les détails des films, les bandes-annonces, les acteurs et les critiques."
+      details:
+        "Petit site de base de données de films créé avec l'API TMDB. Il permet de rechercher des films, de voir les détails des films, les bandes-annonces, les acteurs et les critiques.",
     },
     {
       title: "Chatty",
@@ -43,15 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["React", "Node.js", "CSS"],
       image: "./assets/chatty.png",
       url: "https://chatty-upde.vercel.app/",
-      details: "Une application web de chat en temps réel permettant aux utilisateurs d'envoyer des messages instantanés, de créer des groupes de discussion et de partager des fichiers."
+      details:
+        "Une application web de chat en temps réel permettant aux utilisateurs d'envoyer des messages instantanés, de créer des groupes de discussion et de partager des fichiers.",
     },
     {
       title: "Code4Sud",
-      description: "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle.",
+      description:
+        "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle.",
       tags: ["Python", "Node.js", "Ollama (Lamma3.3)", "OpenDataAPI"],
       image: "./assets/code4sud.png",
       url: "https://dev.ia4sud.fr/",
-      details: "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle. (Nous étions l'une des meilleures équipes). Nous avons développé une application web qui utilise l'API OpenData pour fournir des informations en temps réel sur divers sujets."
+      details:
+        "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle. (Nous étions l'une des meilleures équipes). Nous avons développé une application web qui utilise l'API OpenData pour fournir des informations en temps réel sur divers sujets.",
     },
     {
       title: "Médiathèque Antique",
@@ -59,8 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["PHP", "Javascript", "CSS", "MVC"],
       image: "./assets/mediahub.png",
       url: "https://github.com/omar-elhadi/mediahub.git",
-      details: "Un système de gestion de médiathèque permettant aux utilisateurs de rechercher, emprunter et retourner des livres, des films et les jeux vidéo. Le système comprend également une interface d'administration pour gérer les utilisateurs et les ressources."
-    }
+      details:
+        "Un système de gestion de médiathèque permettant aux utilisateurs de rechercher, emprunter et retourner des livres, des films et les jeux vidéo. Le système comprend également une interface d'administration pour gérer les utilisateurs et les ressources.",
+    },
   ];
 
   const container = document.getElementById("projects-container");
@@ -187,7 +193,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Animate terminal
-        if (element.id === "terminal" && !element.classList.contains("visible")) {
+        if (
+          element.id === "terminal" &&
+          !element.classList.contains("visible")
+        ) {
           element.classList.add("visible");
           typeDomains();
         }
@@ -218,9 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!body) return;
 
     const domains = [
-      { name: "Développement Web",   color: "#6d28d9" },
-      { name: "Cybersécurité",       color: "#3b82f6" },
-      { name: "DevOps",             color: "#10b981" },
+      { name: "Développement Web", color: "#6d28d9" },
+      { name: "Cybersécurité", color: "#3b82f6" },
+      { name: "DevOps", color: "#10b981" },
       { name: "Architecture Système", color: "#f59e0b" },
     ];
 
@@ -510,6 +519,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.getElementById("download-cv-btn")?.addEventListener("click", () => {
-    window.open("assets/cv.pdf", "_blank");
+    window.open("assets/CV.pdf", "_blank");
   });
 });
