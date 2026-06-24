@@ -30,42 +30,97 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load projects from inline data (no fetch needed, works with file://)
   const projectsData = [
     {
+      title: "FB Replica",
+      description:
+        "A React application reviving Facebook's 2020 design, with cool features and interactions",
+      tags: ["React", "TypeScript", "Firebase", "CSS"],
+      images: {
+        desktop: "./assets/demo/fb.png",
+        tablet: "./assets/demo/fb-t.png",
+        mobile: "./assets/demo/fb-m.png",
+      },
+      responsive: true,
+      demo: "https://fb-replica-c7e1e.firebaseapp.com/",
+      code: "https://github.com/omar-elhadi/fb-replica",
+    },
+    {
+      title: "Applications Préférées",
+      description:
+        "Un site présentant mes applications préférées",
+      tags: ["HTML", "CSS", "JavaScript"],
+      images: {
+        desktop: "./assets/demo/af.png",
+        tablet: "./assets/demo/aft.png",
+        mobile: "./assets/demo/af-m.png",
+      },
+      responsive: true,
+      demo: "https://omar-elhadi.github.io/app_favorites/",
+      code: "https://github.com/omar-elhadi/app_favorites",
+    },
+    {
       title: "Cinema",
       description:
         "Petit site de base de données de films créé avec l'API TMDB",
       tags: ["React", "Typescript", "TailwindCSS", "API"],
-      image: "./assets/cinema.png",
-      url: "https://cinema-beige-tau.vercel.app/",
-      details:
-        "Petit site de base de données de films créé avec l'API TMDB. Il permet de rechercher des films, de voir les détails des films, les bandes-annonces, les acteurs et les critiques.",
+      images: {
+        desktop: "./assets/demo/cinema.png",
+        tablet: "./assets/demo/cinema-t.png",
+        mobile: "./assets/demo/cinema-m.png",
+      },
+      responsive: true,
+      demo: "https://cinema-beige-tau.vercel.app/",
+      code: null,
     },
     {
       title: "Chatty",
       description: "Une application web de chat en temps réel",
       tags: ["React", "Node.js", "CSS"],
-      image: "./assets/chatty.png",
-      url: "https://chatty-upde.vercel.app/",
-      details:
-        "Une application web de chat en temps réel permettant aux utilisateurs d'envoyer des messages instantanés, de créer des groupes de discussion et de partager des fichiers.",
+      images: {
+        desktop: "./assets/demo/chatty.png",
+        tablet: "./assets/demo/chatty-t.png",
+        mobile: "./assets/demo/chatty-m.png",
+      },
+      responsive: true,
+      demo: "https://chatty-upde.vercel.app/",
+      code: null,
+    },
+    {
+      title: "MarsAI",
+      description:
+        "Un festival pour ceux qui ont quelque chose à poster",
+      tags: ["React", "TypeScript", "TailwindCSS", "Vercel"],
+      images: {
+        desktop: "./assets/demo/marsai.png",
+        tablet: "./assets/demo/marsai-t.png",
+        mobile: "./assets/demo/marsai-m.png",
+      },
+      responsive: true,
+      demo: "https://marsai-festival.vercel.app",
+      code: "https://github.com/omar-elhadi/marsai",
     },
     {
       title: "Code4Sud",
       description:
         "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle.",
       tags: ["Python", "Node.js", "Ollama (Lamma3.3)", "OpenDataAPI"],
-      image: "./assets/code4sud.png",
-      url: "https://dev.ia4sud.fr/",
-      details:
-        "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle. (Nous étions l'une des meilleures équipes). Nous avons développé une application web qui utilise l'API OpenData pour fournir des informations en temps réel sur divers sujets.",
+      images: {
+        desktop: "./assets/demo/code4sud.png",
+      },
+      responsive: false,
+      demo: "https://dev.ia4sud.fr/",
+      code: null,
     },
     {
       title: "Médiathèque Antique",
-      description: "Un système de gestion de médiathèque",
-      tags: ["PHP", "Javascript", "CSS", "MVC"],
-      image: "./assets/mediahub.png",
-      url: "https://github.com/omar-elhadi/mediahub.git",
-      details:
-        "Un système de gestion de médiathèque permettant aux utilisateurs de rechercher, emprunter et retourner des livres, des films et les jeux vidéo. Le système comprend également une interface d'administration pour gérer les utilisateurs et les ressources.",
+      description:
+        "Un système de gestion de médiathèque permettant de gérer un catalogue de livres, films et jeux vidéo avec un système d'emprunts.",
+      tags: ["PHP", "JavaScript", "CSS", "MVC"],
+      images: {
+        desktop: "./assets/demo/mediahub.png",
+      },
+      responsive: false,
+      demo: null,
+      code: "https://github.com/omar-elhadi/mediahub",
     },
   ];
 
@@ -74,45 +129,45 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = "";
 
     projectsData.forEach((project, index) => {
-      const gradientClass =
-        index % 2 === 0
-          ? "from-primary/20 to-secondary/20"
-          : "from-secondary/20 to-primary/20";
+      const images = project.images;
+      const hasResponsive = images.tablet && images.mobile;
 
-      const projectCard = document.createElement("div");
-      projectCard.className = "project-card group";
-      projectCard.innerHTML = `
-        <div class="project-image bg-[url('${project.image}')]">
-          <div class="absolute inset-0 bg-gradient-to-br ${gradientClass} rounded-xl"></div>
-        </div>
-        <div class="project-content">
-          <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
-          <p class="opacity-80 mb-4">${project.description}</p>
-          <div class="flex gap-2 flex-wrap">
-            ${project.tags
-              .map(
-                (tag, i) => `
-              <span class="px-3 py-1 ${
-                i === 0
-                  ? "bg-primary/10 text-primary"
-                  : i === 1
-                    ? "bg-secondary/10 text-secondary"
-                    : "bg-gray-800"
-              } rounded-full text-sm">${tag}</span>
-            `,
-              )
-              .join("")}
+      const projectEl = document.createElement("div");
+      projectEl.className = "project-full";
+
+      let imageHtml = "";
+      if (hasResponsive) {
+        imageHtml = `
+          <div class="project-images-stack">
+            <img class="img-desktop" src="${images.desktop}" alt="${project.title} desktop" loading="lazy" />
+            <img class="img-tablet" src="${images.tablet}" alt="${project.title} tablet" loading="lazy" />
+            <img class="img-mobile" src="${images.mobile}" alt="${project.title} mobile" loading="lazy" />
+          </div>`;
+      } else {
+        imageHtml = `
+          <div class="project-images-stack">
+            <img class="img-desktop" src="${images.desktop}" alt="${project.title}" loading="lazy" />
+          </div>`;
+      }
+
+      projectEl.innerHTML = `
+        ${imageHtml}
+        <div class="project-meta">
+          <h3 class="project-title">${project.title}</h3>
+          <div class="project-links">
+            ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link">Démo</a>` : ""}
+            ${project.code ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer" class="project-link">Code</a>` : ""}
           </div>
+        </div>
+        <p class="project-desc">${project.description}</p>
+        <div class="project-tags">
+          ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
         </div>
       `;
 
-      projectCard.addEventListener("click", () => {
-        openProjectModal(project, projectCard);
-      });
-
-      container.appendChild(projectCard);
+      container.appendChild(projectEl);
       setTimeout(() => {
-        projectCard.classList.add("visible");
+        projectEl.classList.add("visible");
       }, index * 100);
     });
   }
