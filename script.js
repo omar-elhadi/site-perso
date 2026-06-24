@@ -128,7 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (container) {
     container.innerHTML = "";
 
-    projectsData.forEach((project, index) => {
+    // Separate responsive and single-image projects
+    const responsiveProjects = projectsData.filter((p) => p.responsive);
+    const singleProjects = projectsData.filter((p) => !p.responsive);
+
+    const renderProject = (project, delay) => {
       const images = project.images;
       const hasResponsive = images.tablet && images.mobile;
 
@@ -150,26 +154,66 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>`;
       }
 
+      const linksHtml = [];
+      if (project.demo) {
+        linksHtml.push(
+          `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link">Démo</a>`,
+        );
+      }
+      if (project.code) {
+        linksHtml.push(
+          `<a href="${project.code}" target="_blank" rel="noopener noreferrer" class="project-link project-link-code">Code</a>`,
+        );
+      }
+
       projectEl.innerHTML = `
         ${imageHtml}
         <div class="project-meta">
           <h3 class="project-title">${project.title}</h3>
-          <div class="project-links">
-            ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link">Démo</a>` : ""}
-            ${project.code ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer" class="project-link">Code</a>` : ""}
-          </div>
+          <div class="project-links">${linksHtml.join("")}</div>
         </div>
         <p class="project-desc">${project.description}</p>
         <div class="project-tags">
-          ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+          ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join("")}
         </div>
+        <div class="project-separator"></div>
       `;
 
       container.appendChild(projectEl);
       setTimeout(() => {
         projectEl.classList.add("visible");
-      }, index * 100);
+      }, delay);
+    };
+
+    // Render responsive projects
+    responsiveProjects.forEach((project, i) => {
+      renderProject(project, i * 100);
     });
+
+    // Wrap single-image projects in a hidden container with overlay
+    if (singleProjects.length > 0) {
+      const hiddenWrap = document.createElement("div");
+      hiddenWrap.className = "projects-hidden-wrap";
+
+      singleProjects.forEach((project, i) => {
+        renderProject(project, (responsiveProjects.length + i) * 100);
+      });
+
+      const overlay = document.createElement("div");
+      overlay.className = "projects-hidden-overlay";
+      hiddenWrap.appendChild(overlay);
+
+      const seeMoreBtn = document.createElement("button");
+      seeMoreBtn.className = "see-more-btn";
+      seeMoreBtn.textContent = "Voir plus de projets";
+      seeMoreBtn.addEventListener("click", () => {
+        overlay.classList.add("revealed");
+        seeMoreBtn.style.display = "none";
+      });
+
+      container.appendChild(hiddenWrap);
+      container.appendChild(seeMoreBtn);
+    }
   }
 
   // Typewriter effect
@@ -229,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Animate elements when they come into view
   const animateOnScroll = () => {
     const elements = document.querySelectorAll(
-      ".project-card, .tech-bar-fill, #terminal, .education-item, .basic-skill-item",
+      ".project-full, .tech-bar-fill, #terminal, .education-item, .basic-skill-item",
     );
 
     elements.forEach((element, index) => {
@@ -357,108 +401,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  // Project modal function
-  const openProjectModal = (project, cardElement) => {
-    document.body.classList.add("overflow-hidden");
-
-    const modal = document.createElement("div");
-    modal.classList.add("modal-overlay", "opacity-0");
-
-    const modalContent = document.createElement("div");
-    modalContent.className =
-      "project-card project-modal bg-dark/95 border border-primary/20 scale-95 opacity-0 max-w-[90%] xl:max-w-5xl w-full";
-    modalContent.innerHTML = `
-      <div class="project-image " style="background-image: url('${
-        project.image
-      }')">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm"></div>
-      </div>
-      <div class="absolute top-4 right-4 z-20">
-        <button class="close-modal w-10 h-10 rounded-full bg-primary/20 hover:bg-primary/40 flex items-center justify-center transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="relative z-10 p-8 bg-black opacity-65 h-full rounded-xl">
-        <h3 class="text-3xl font-bold mb-4">${project.title}</h3>
-        <p class="text-lg opacity-90 mb-6">${project.description}</p>
-        ${
-          project.details
-            ? `<p class="opacity-80 mb-6">${project.details}</p>`
-            : ""
-        }
-        <div class="flex gap-2 flex-wrap mb-6">
-          ${project.tags
-            .map(
-              (tag, i) => `
-            <span class="px-4 py-2 ${
-              i === 0
-                ? "bg-blue-400/40 text-blue-400 border border-primary/30"
-                : i === 1
-                  ? "bg-secondary/20 text-secondary border border-secondary/30"
-                  : "bg-gray-800 border border-gray-700"
-            } rounded-full text-sm font-medium">${tag}</span>
-          `,
-            )
-            .join("")}
-        </div>
-        ${
-          project.url
-            ? `
-          <a href="${project.url}" target="_blank" rel="noopener noreferrer" 
-             class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:shadow-lg hover:shadow-primary/30 transition-all">
-            Voir le projet
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
-        `
-            : ""
-        }
-      </div>
-    `;
-
-    modal.appendChild(modalContent);
-
-    // Close modal on overlay click or close button
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal || e.target.closest(".close-modal")) {
-        // Fade out animation
-        modal.classList.remove("opacity-100");
-        modal.classList.add("opacity-0");
-        modalContent.classList.remove("scale-100", "opacity-100");
-        modalContent.classList.add("scale-95", "opacity-0");
-
-        setTimeout(() => {
-          document.body.classList.remove("overflow-hidden");
-          modal.remove();
-        }, 300);
-      }
-    });
-
-    // Add escape key to close
-    const handleEscape = (e) => {
-      if (e.key === "Escape") {
-        modal.click();
-        document.removeEventListener("keydown", handleEscape);
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-
-    document.body.appendChild(modal);
-
-    // Trigger animations on next frame
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        modal.classList.remove("opacity-0");
-        modal.classList.add("opacity-100");
-        modalContent.classList.remove("scale-95", "opacity-0");
-        modalContent.classList.add("scale-100", "opacity-100");
-      });
-    });
-  };
 
   // Form submission handler (simplified without EmailJS)
   const contactForm = document.querySelector("#contact-form");
