@@ -45,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Applications Préférées",
-      description:
-        "Un site présentant mes applications préférées",
+      description: "Un site présentant mes applications préférées",
       tags: ["HTML", "CSS", "JavaScript"],
       images: {
         desktop: "./assets/demo/af.png",
@@ -86,8 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "MarsAI",
-      description:
-        "Un festival pour ceux qui ont quelque chose à poster",
+      description: "Un festival pour ceux qui ont quelque chose à poster",
       tags: ["React", "TypeScript", "TailwindCSS", "Vercel"],
       images: {
         desktop: "./assets/demo/marsai.png",
