@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "FB Replica",
       description:
-        "A React application reviving Facebook's 2020 design, with cool features and interactions",
+        "Application React reproduisant le design 2020 de Facebook avec authentification, fil d'actualité en temps réel, gestion d'amis, réactions animées et thème dark/light.",
       tags: ["React", "TypeScript", "Firebase", "CSS"],
       images: {
         desktop: "./assets/demo/fb.png",
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "Cinema",
       description:
-        "Petit site de base de données de films créé avec l'API TMDB",
+        "Application web de navigation de films et séries TV utilisant l'API TMDB avec recherche avancée, fiches détaillées et bandes-annonces.",
       tags: ["React", "Typescript", "TailwindCSS", "API"],
       images: {
         desktop: "./assets/demo/cinema.png",
@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "MarsAI",
-      description: "Un festival pour ceux qui ont quelque chose à poster",
+      description:
+        "Plateforme web de soumission, review et vote de films générés par IA avec dashboard jury, galerie publique et gestion d'événements.",
       tags: ["React", "TypeScript", "TailwindCSS", "Vercel"],
       images: {
         desktop: "./assets/demo/marsai.png",
@@ -85,7 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Applications Préférées",
-      description: "Un site présentant mes applications préférées",
+      description:
+        "Site vitrine présentant mes applications mobiles et de bureau préférées avec fiches détaillées, fonctionnalités et liens de téléchargement.",
       tags: ["HTML", "CSS", "JavaScript"],
       images: {
         desktop: "./assets/demo/af.png",
@@ -98,7 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Chatty",
-      description: "Une application web de chat en temps réel",
+      description:
+        "Application de chat temps réel moderne avec authentification JWT, salons de discussion, messagerie instantanée et notifications.",
       tags: ["React", "Node.js", "CSS"],
       images: {
         desktop: "./assets/demo/chatty.png",
@@ -112,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "Code4Sud",
       description:
-        "Participation au hackathon de Code4Sud 2024 sur le développement d'une intelligence artificielle.",
+        "Application web développée lors du hackathon Code4Sud 2024 utilisant l'API OpenData et l'IA (Llama 3.3) pour fournir des informations en temps réel.",
       tags: ["Python", "Node.js", "Ollama (Lamma3.3)", "OpenDataAPI"],
       images: {
         desktop: "./assets/demo/code4sud.png",
