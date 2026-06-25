@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ) {
           setTimeout(() => {
             element.classList.add("animate-in");
-          }, index * 200);
+          }, index * 50);
         }
       }
     });

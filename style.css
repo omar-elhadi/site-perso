@@ -498,7 +498,7 @@ img {
 }
 
 .basic-skill-item.animate-in {
-  animation: slideInLeft 1s ease forwards;
+  animation: slideInLeft 0.4s ease forwards;
 }
 
 .basic-skill-item:hover {
