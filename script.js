@@ -44,19 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       code: "https://github.com/omar-elhadi/fb-replica",
     },
     {
-      title: "Applications Préférées",
-      description: "Un site présentant mes applications préférées",
-      tags: ["HTML", "CSS", "JavaScript"],
-      images: {
-        desktop: "./assets/demo/af.png",
-        tablet: "./assets/demo/aft.png",
-        mobile: "./assets/demo/af-m.png",
-      },
-      responsive: true,
-      demo: "https://omar-elhadi.github.io/app_favorites/",
-      code: "https://github.com/omar-elhadi/app_favorites",
-    },
-    {
       title: "Cinema",
       description:
         "Petit site de base de données de films créé avec l'API TMDB",
@@ -71,19 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
       code: null,
     },
     {
-      title: "Chatty",
-      description: "Une application web de chat en temps réel",
-      tags: ["React", "Node.js", "CSS"],
-      images: {
-        desktop: "./assets/demo/chatty.png",
-        tablet: "./assets/demo/chatty-t.png",
-        mobile: "./assets/demo/chatty-m.png",
-      },
-      responsive: true,
-      demo: "https://chatty-upde.vercel.app/",
-      code: null,
-    },
-    {
       title: "MarsAI",
       description: "Un festival pour ceux qui ont quelque chose à poster",
       tags: ["React", "TypeScript", "TailwindCSS", "Vercel"],
@@ -95,6 +69,32 @@ document.addEventListener("DOMContentLoaded", () => {
       responsive: true,
       demo: "https://marsai-festival.vercel.app",
       code: "https://github.com/omar-elhadi/marsai",
+    },
+    {
+      title: "Applications Préférées",
+      description: "Un site présentant mes applications préférées",
+      tags: ["HTML", "CSS", "JavaScript"],
+      images: {
+        desktop: "./assets/demo/af.png",
+        tablet: "./assets/demo/aft.png",
+        mobile: "./assets/demo/af-m.png",
+      },
+      responsive: true,
+      demo: "https://omar-elhadi.github.io/app_favorites/",
+      code: "https://github.com/omar-elhadi/app_favorites",
+    },
+    {
+      title: "Chatty",
+      description: "Une application web de chat en temps réel",
+      tags: ["React", "Node.js", "CSS"],
+      images: {
+        desktop: "./assets/demo/chatty.png",
+        tablet: "./assets/demo/chatty-t.png",
+        mobile: "./assets/demo/chatty-m.png",
+      },
+      responsive: true,
+      demo: "https://chatty-upde.vercel.app/",
+      code: null,
     },
     {
       title: "Code4Sud",
