@@ -126,9 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (container) {
     container.innerHTML = "";
 
-    // Separate responsive and single-image projects
-    const responsiveProjects = projectsData.filter((p) => p.responsive);
-    const singleProjects = projectsData.filter((p) => !p.responsive);
+    const maxVisible = 5;
 
     const renderProject = (project, delay) => {
       const images = project.images;
@@ -177,39 +175,44 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="project-separator"></div>
       `;
 
-      container.appendChild(projectEl);
-      setTimeout(() => {
-        projectEl.classList.add("visible");
-      }, delay);
+      if (delay !== undefined) {
+        container.appendChild(projectEl);
+        setTimeout(() => projectEl.classList.add("visible"), delay);
+      }
+      return projectEl;
     };
 
-    // Render responsive projects
-    responsiveProjects.forEach((project, i) => {
+    // Render first 5 projects
+    projectsData.slice(0, maxVisible).forEach((project, i) => {
       renderProject(project, i * 100);
     });
 
-    // Wrap single-image projects in a hidden container with overlay
-    if (singleProjects.length > 0) {
-      const hiddenWrap = document.createElement("div");
-      hiddenWrap.className = "projects-hidden-wrap";
+    // Wrap remaining projects in hidden container with toggle
+    const extraProjects = projectsData.slice(maxVisible);
+    if (extraProjects.length > 0) {
+      const extraWrap = document.createElement("div");
+      extraWrap.className = "projects-extra";
 
-      singleProjects.forEach((project, i) => {
-        renderProject(project, (responsiveProjects.length + i) * 100);
+      extraProjects.forEach((project, i) => {
+        const el = renderProject(project);
+        extraWrap.appendChild(el);
+        setTimeout(() => el.classList.add("visible"), (maxVisible + i) * 100);
       });
-
-      const overlay = document.createElement("div");
-      overlay.className = "projects-hidden-overlay";
-      hiddenWrap.appendChild(overlay);
 
       const seeMoreBtn = document.createElement("button");
       seeMoreBtn.className = "see-more-btn";
       seeMoreBtn.textContent = "Voir plus de projets";
+
+      let revealed = false;
       seeMoreBtn.addEventListener("click", () => {
-        overlay.classList.add("revealed");
-        seeMoreBtn.style.display = "none";
+        revealed = !revealed;
+        extraWrap.classList.toggle("revealed", revealed);
+        seeMoreBtn.textContent = revealed
+          ? "Voir moins de projets"
+          : "Voir plus de projets";
       });
 
-      container.appendChild(hiddenWrap);
+      container.appendChild(extraWrap);
       container.appendChild(seeMoreBtn);
     }
   }

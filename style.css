@@ -179,25 +179,12 @@ img {
 
 /* ── See More Overlay ──────────────────────────────── */
 
-.projects-hidden-wrap {
-  position: relative;
+.projects-extra {
+  display: none;
 }
 
-.projects-hidden-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: linear-gradient(to top, #0f172a 0%, transparent 100%);
-  pointer-events: none;
-  z-index: 10;
-  transition: opacity 0.6s ease;
-}
-
-.projects-hidden-overlay.revealed {
-  opacity: 0;
-  pointer-events: none;
+.projects-extra.revealed {
+  display: block;
 }
 
 .see-more-btn {
