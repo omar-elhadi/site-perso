@@ -4,28 +4,41 @@ document.addEventListener("DOMContentLoaded", () => {
     feather.replace();
   }
 
-  // Loading spinner for 2 seconds
-  const loadingSpinner = () => {
-    const spinner = document.createElement("div");
-    spinner.className =
-      "fixed inset-0 bg-gray-900 z-50 flex items-center justify-center transition-opacity duration-500";
-    spinner.innerHTML = `
-<div class="relative w-32 h-32">
-<div class="absolute inset-0 border-8 border-transparent border-t-purple-700 border-r-pink-700 rounded-full animate-spin"></div>
-<div class="absolute inset-4 border-8 border-transparent border-b-yellow-400 border-l-cyan-400 rounded-full animate-spin" style="animation-direction: reverse; animation-duration: 1s;"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="text-4xl">🌙</span>
-</div>
-</div>
-`;
-    document.body.appendChild(spinner);
+  // Splash animation: water drop → shockwave → reveal
+  const splashAnimation = () => {
+    const overlay = document.createElement("div");
+    overlay.id = "splash-overlay";
+    overlay.innerHTML = `
+      <div class="splash-drop"></div>
+      <div class="splash-ripple"></div>
+      <div class="splash-ripple splash-ripple-2"></div>
+      <div class="splash-ripple splash-ripple-3"></div>
+    `;
+    document.body.appendChild(overlay);
+
+    // Trigger drop fall
+    requestAnimationFrame(() => {
+      overlay.querySelector(".splash-drop").classList.add("fall");
+    });
+
+    // Impact: ripples expand + flash
     setTimeout(() => {
-      if (spinner.parentNode) {
-        document.body.removeChild(spinner);
-      }
+      overlay.querySelector(".splash-drop").classList.add("impact");
+      overlay.querySelectorAll(".splash-ripple").forEach((r) => r.classList.add("expand"));
+      overlay.classList.add("flash");
+    }, 900);
+
+    // Reveal: overlay fades out
+    setTimeout(() => {
+      overlay.classList.add("fade-out");
     }, 2000);
+
+    // Cleanup
+    setTimeout(() => {
+      if (overlay.parentNode) overlay.remove();
+    }, 2800);
   };
-  loadingSpinner();
+  splashAnimation();
 
   // Load projects from inline data (no fetch needed, works with file://)
   const projectsData = [

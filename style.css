@@ -646,3 +646,125 @@ img {
     padding-left: 1.5rem;
   }
 }
+
+/* ── Splash Animation ──────────────────────────────── */
+
+#splash-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0f172a;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+  overflow: hidden;
+}
+
+#splash-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#splash-overlay.flash {
+  background: radial-gradient(circle at center, rgba(109, 40, 217, 0.15), #0f172a 50%);
+  transition: background 0.3s ease;
+}
+
+.splash-drop {
+  position: absolute;
+  top: -60px;
+  left: calc(50% - 15px);
+  width: 30px;
+  height: 50px;
+  background: linear-gradient(135deg, #6d28d9 0%, #10b981 100%);
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  box-shadow:
+    0 0 30px rgba(109, 40, 217, 0.6),
+    0 0 60px rgba(16, 185, 129, 0.3);
+  opacity: 0;
+  transition: none;
+}
+
+.splash-drop.fall {
+  opacity: 1;
+  animation: dropFall 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.splash-drop.impact {
+  animation: dropImpact 0.4s ease-out forwards;
+}
+
+@keyframes dropFall {
+  0% {
+    top: 0;
+    opacity: 0;
+    transform: rotate(45deg) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1.2);
+  }
+  100% {
+    top: calc(50% - 25px);
+    left: calc(50% - 15px);
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes dropImpact {
+  0% {
+    top: calc(50% - 25px);
+    left: calc(50% - 15px);
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    top: calc(50% - 25px);
+    left: calc(50% - 15px);
+    transform: rotate(45deg) scale(0);
+    opacity: 0;
+  }
+}
+
+.splash-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(109, 40, 217, 0.5);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-ripple.expand {
+  animation: rippleExpand 1.2s ease-out forwards;
+}
+
+.splash-ripple-2.expand {
+  animation-delay: 0.15s;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.splash-ripple-3.expand {
+  animation-delay: 0.3s;
+  border-color: rgba(109, 40, 217, 0.3);
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
+  100% {
+    width: min(150vw, 150vh);
+    height: min(150vw, 150vh);
+    opacity: 0;
+  }
+}
