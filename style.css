@@ -497,6 +497,10 @@ img {
   }
 }
 
+.basic-skill-item.animate-in {
+  animation: slideInLeft 1s ease forwards;
+}
+
 .basic-skill-item:hover {
   transform: translateX(5px);
   border-color: rgba(109, 40, 217, 0.3);
