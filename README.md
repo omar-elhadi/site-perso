@@ -19,13 +19,13 @@ site-perso/
 ├── style.css          # Custom styles & animations
 └── script.js          # Interactive features & dynamic content
 
-## 🎯 Features
+## Features
 - Dark-themed responsive design
 - Typewriter effect for domain expertise showcase  
 - Animated project cards with smooth transitions
 - Contact form integration (placeholder)
 
-## 🔧 Development Setup (if modifying locally)
+## Development Setup (if modifying locally)
 
 ```bash
 # No build process required - just open index.html in browser!
